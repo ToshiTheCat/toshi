@@ -1824,10 +1824,11 @@ contract NFToshi is ERC721A, Ownable {
     uint256 public MIN_HOLD_AMOUNT_STAGE_3 = 100_000_000 ether;
 
     address public TOSHI = 0x8544FE9D190fD7EC52860abBf45088E81Ee24a8c;
+    address public TOSHI_HELPER = 0xbD11CeD0A5021CD7262c64576a79d5Dc3Bb5856C;
 
     mapping(address => bool) private _allowList;
 
-    constructor() ERC721A("NFToshi's", "NFTOSHI") Ownable(_msgSender()) {}
+    constructor() ERC721A("NFToshis", "NFTOSHI") Ownable(TOSHI_HELPER) {}
 
     function mint(uint256 numberOfTokens) public {
         require(isMintEnabled, "Mint is not enabled");
